@@ -86,6 +86,7 @@ nest new project-name
 - SOLID (D - inversion of control) - quando temos uma controller que depende de outro arquivo ao invez de simplesmente importa-lo para utilizar, ele deve receber suas dependencias como parametros no contrutor da controller.
 - Dependency injection - Ao tipar appService como : AppService o Nest detecta automáticamente que tenho um provider com esse tipo e passa esse parametro automáticamente para o controller. 
 Para isso precisamos utilizar o decorator @Injectable() em todos os Providers, desse modo, realizando a injecão de dependencias
+- OBS: Jest não realiza injecão de dependencias automatizadas quando discriminado uma interface. Pois, o JS não consegue ler o nome da interface (Algo especifico do TS)
 
 ## NEST DTO Data Transfer Objects
 - 
@@ -110,3 +111,4 @@ app.useGlobalPipes(new ValidationPipe());
             @Get() para end-point de get
             @Body() para resgatar o body
     - providers: Aqui
+  - repositories [folder] - Armazena interfaces (contrato), discrimina métodos que irão existir, parametros e respostas, sem implementa-los necessáriamente.
